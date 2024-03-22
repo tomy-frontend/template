@@ -1,3 +1,4 @@
 # template
 プロジェクト毎のスタートアップテンプレート
-create new...からImport repositoryでこのリポジトリのhttps:~をコピーしてプロジェクトスタート
+create new...からImport repositoryでこのリポジトリのhttps:~をコピーして新しいリポジトリとしてプロジェクトスタート
+新しいリポジトリができたらvscodeでデスクトップにクローンして作成開始
