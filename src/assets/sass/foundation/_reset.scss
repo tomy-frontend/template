@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+li,
+dt,
+dd,
+p,
+div,
+span,
+img,
+a,
+table,
+tr,
+th,
+td,
+small,
+button,
+time,
+figure {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li,
+dd {
+  list-style-type: none;
+}
+
+header,
+footer,
+nav,
+section,
+article,
+main,
+aside,
+figure,
+figcaption {
+  display: block;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  border: none; /* ボーダーを削除 */
+  outline: none; /* アウトライン（フォーカス時の枠線）を削除 */
+  background-color: none; /* 背景色を白に設定 */
+  font-size: 16px; /* フォントサイズ */
+  color: black; /* テキストカラー */
+  padding: 0;
+  box-sizing: border-box; /* パディングとボーダーを幅と高さに含める */
+}
+textarea {
+  border: none; /* ボーダーを削除 */
+  outline: none; /* アウトライン（フォーカス時の枠線）を削除 */
+  background-color: none; /* 背景色を白に設定 */
+  font-size: 16px; /* フォントサイズ */
+  color: black; /* テキストカラー */
+  padding: 0;
+  box-sizing: border-box; /* パディングとボーダーを幅と高さに含める */
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
+select {
+  border: none;
+  background: none;
+}
+
+i {
+  font-style: normal;
+}

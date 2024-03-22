@@ -1,0 +1,35 @@
+//色
+$main-color: #1391e6;
+$sub-color-01: #0060a0;
+$text-color-black: #393939;
+$text-color-white: #ffffff;
+
+// フォント
+$ff-base: "M PLUS Rounded 1c", sans-serif;
+$fz-base: 1rem; // ベースフォントサイズ 16px
+$fw-base: 500; // ベースフォントウェイト
+$lh-base: normal; // ベース行間
+
+// レイアウト
+$sp-contents-width: 335px;
+$pc-contents-width: 1000px;
+
+// transitionの定義
+$transition-default: all 0.3s ease;
+
+// 重なり順の定義
+$layer: (
+  // ローディング
+  loading: 300,
+  // モーダル
+  modal: 100,
+  // ドロワー
+  drawer: 40,
+  // フローティング
+  floating: 30,
+  // ヘッダー
+  header: 20,
+  // フッター
+  footer: 10,
+  default: 1
+);
