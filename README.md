@@ -1,3 +1,4 @@
 # template
 プロジェクト毎のスタートアップテンプレート
-このリポジトリをフォークしてvs code上でリポジトリを複製して案件スタート
+create new...からImport repositoryでこのrepositoryのhttps~のURLをコピーして
+プロジェクトスタート
