@@ -1,1 +1,3 @@
-# 研究用リポジトリ
+# template
+プロジェクト毎のスタートアップテンプレート
+create new...からImport repositoryでこのリポジトリのhttps:~をコピーしてプロジェクトスタート
