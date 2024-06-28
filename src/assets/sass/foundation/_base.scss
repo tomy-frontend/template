@@ -1,7 +1,7 @@
 @use "../global" as global;
 
 body {
-  color: global.$text-color-black;
+  color: global.$black;
   font-family: global.$ff-base;
   font-size: global.$fz-base;
   font-weight: global.$fw-base;

@@ -1,14 +1,26 @@
 //色
 $main-color: #1391e6;
 $sub-color-01: #0060a0;
-$text-color-black: #393939;
-$text-color-white: #ffffff;
+$accent-color-01: #0060a0;
+$black: #393939;
+$white: #ffffff;
+
+// フォントファミリー
+$ff-base: "M PLUS Rounded 1c", sans-serif;
+$ff-en: "M PLUS Rounded 1c", sans-serif;
 
 // フォント
-$ff-base: "M PLUS Rounded 1c", sans-serif;
 $fz-base: 1rem; // ベースフォントサイズ 16px
-$fw-base: 500; // ベースフォントウェイト
+$fw-base: 400; // ベースフォントウェイト
+$fw-medium: 500; //ミディアムフォントウェイト
+$fw-semibold: 600; //セミボールドフォントウェイト
+$fw-bold: 700; //ボールドフォントウェイト
 $lh-base: normal; // ベース行間
+
+// rem計算
+@function rem($font-size-px) {
+  @return calc($font-size-px / 16 * 1rem);
+}
 
 // レイアウト
 $sp-contents-width: 335px;
@@ -18,18 +30,11 @@ $pc-contents-width: 1000px;
 $transition-default: all 0.3s ease;
 
 // 重なり順の定義
-$layer: (
-  // ローディング
-  loading: 300,
-  // モーダル
-  modal: 100,
-  // ドロワー
-  drawer: 40,
-  // フローティング
-  floating: 30,
-  // ヘッダー
-  header: 20,
-  // フッター
-  footer: 10,
-  default: 1
+$z-indexes: (
+  header: 30,
+  drawer: 20,
 );
+
+@function z-index($key) {
+  @return map-get($z-indexes, $key);
+}

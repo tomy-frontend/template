@@ -1,0 +1,23 @@
+@use "../global" as global;
+
+.c-btn {
+  width: fit-content;
+  display: inline-block;
+  font-size: global.rem(16);
+  font-weight: global.$fw-medium;
+  color: global.$white;
+  padding: 20px 64px;
+  background-color: global.$black;
+  transition: global.$transition-default;
+
+  &:hover,
+  &:focus {
+    color: global.$black;
+    background-color: global.$white;
+  }
+
+  @include global.mq(lg) {
+    font-size: global.rem(18);
+    padding: 20px 80px;
+  }
+}
