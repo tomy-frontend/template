@@ -6,6 +6,7 @@ body {
   font-size: global.$fz-base;
   font-weight: global.$fw-base;
   line-height: global.$lh-base;
+  overflow-x: hidden;
 }
 
 img {

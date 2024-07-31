@@ -1,23 +1,83 @@
 @use "../global" as global;
 
 .c-btn {
-  width: fit-content;
+  position: relative;
+  width: 100%;
+  max-width: 330px;
   display: inline-block;
-  font-size: global.rem(16);
-  font-weight: global.$fw-medium;
-  color: global.$white;
-  padding: 20px 64px;
-  background-color: global.$black;
+  align-items: center;
+  color: global.$black;
+  font-size: global.rem(22.263);
+  font-weight: global.$fw-bold;
+  line-height: 140%; /* 31.168px */
+  letter-spacing: 0.668px;
+  padding-block: 0.78em;
+  background-color: global.$white;
+  border: 2px solid;
+  border-radius: 70px;
+  text-align: center;
   transition: global.$transition-default;
 
-  &:hover,
-  &:focus {
-    color: global.$black;
-    background-color: global.$white;
+  // 三角矢印アイコン
+  &:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 0.8em;
+    width: 100%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: translateY(-50%);
+    rotate: (-45deg);
+    transition: global.$transition-default;
   }
 
-  @include global.mq(lg) {
-    font-size: global.rem(18);
-    padding: 20px 80px;
+  @media (any-hover: hover) {
+    &:hover,
+    &:focus {
+      background-color: global.$main-color;
+      color: global.$white;
+
+      &:after {
+        border-color: global.$white;
+        right: 0.7em;
+      }
+    }
+  }
+}
+
+.c-btn--bg-white {
+  max-width: 229px;
+  font-size: global.rem(18);
+  color: global.$main-color;
+  letter-spacing: 0.54px;
+  padding-top: 9.04px;
+  padding-bottom: 6.9px;
+  border-radius: 30px;
+  background-color: global.$white;
+
+  &::after {
+    content: none;
+  }
+}
+
+// pattern-2
+.c-btn--bg-pink {
+  color: global.$white;
+  background-color: global.$main-color;
+
+  @media (any-hover: hover) {
+    &:hover,
+    &:focus {
+      background-color: global.$white;
+      color: global.$main-color;
+
+      &:after {
+        border-color: global.$main-color;
+      }
+    }
   }
 }

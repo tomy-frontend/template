@@ -5,6 +5,15 @@ $accent-color-01: #0060a0;
 $black: #393939;
 $white: #ffffff;
 
+// オリジナルフォント読み込み
+// public/fonts/ にフォントファイルを格納
+// @font-face {
+//   font-family: "font-name";
+//   src: url("../fonts/") format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
 // フォントファミリー
 $ff-base: "M PLUS Rounded 1c", sans-serif;
 $ff-en: "M PLUS Rounded 1c", sans-serif;
@@ -15,24 +24,37 @@ $fw-base: 400; // ベースフォントウェイト
 $fw-medium: 500; //ミディアムフォントウェイト
 $fw-semibold: 600; //セミボールドフォントウェイト
 $fw-bold: 700; //ボールドフォントウェイト
-$lh-base: normal; // ベース行間
+$lh-base: 1; // ベース行間
 
 // rem計算
 @function rem($font-size-px) {
   @return calc($font-size-px / 16 * 1rem);
 }
 
+//clamp関数
+@function cal-clamp($min, $max, $min-view-port: 768, $max-view-port: 1000) {
+  $variable-part: calc(($max - $min) / ($max-view-port - $min-view-port));
+  $constant: calc(($max - $max-view-port * $variable-part) / 16);
+  $min-rem: calc($min / 16 * 1rem);
+  $max-rem: calc($max / 16 * 1rem);
+  $variable-rem: calc($constant * 1rem);
+  $variable-vw: calc(100 * $variable-part * 1vw);
+
+  @return clamp($min-rem, $variable-rem + $variable-vw, $max-rem);
+}
+
 // レイアウト
-$sp-contents-width: 335px;
-$pc-contents-width: 1000px;
+$sp-contents-width: 288px;
+$pc-contents-width: 1232px;
 
 // transitionの定義
 $transition-default: all 0.3s ease;
 
 // 重なり順の定義
 $z-indexes: (
-  header: 30,
-  drawer: 20,
+  header: 4,
+  hamburger: 3,
+  drawer: 2,
 );
 
 @function z-index($key) {

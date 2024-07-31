@@ -2,10 +2,10 @@
 
 .l-inner {
   width: calc(100% - 16px * 2); //16pxはpaddingの値
-  margin: 0 auto;
+  margin-inline: auto;
 
   @include global.mq(lg) {
-    width: calc(100% - 130px * 2); //130pxはpaddingの値
-    max-width: 1180px; //コンテンツの最大幅
+    width: calc(100% - 140px * 2); //130pxはpaddingの値
+    max-width: 1232px; //コンテンツの最大幅
   }
 }
