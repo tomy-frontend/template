@@ -1,11 +1,13 @@
 @use "../global" as global;
 
 .l-inner {
-  width: calc(100% - 16px * 2); //16pxはpaddingの値
+  --padding-inline: 16px;
+  --max-content-width: 1000px;
+
+  width: min(calc(100% - var(--padding-inline) * 2), var(--max-content-width));
   margin-inline: auto;
 
-  @include global.mq(lg) {
-    width: calc(100% - 140px * 2); //130pxはpaddingの値
-    max-width: 1232px; //コンテンツの最大幅
+  @include global.mq(md) {
+    --padding-inline: 60px;
   }
 }

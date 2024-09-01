@@ -1,7 +1,7 @@
 //色
-$main-color: #1391e6;
-$sub-color-01: #0060a0;
-$accent-color-01: #0060a0;
+$primary-color: #1391e6;
+$secondary-color: #f8f8f8;
+$accent-color: #0060a0;
 $black: #393939;
 $white: #ffffff;
 
@@ -19,7 +19,7 @@ $ff-base: "M PLUS Rounded 1c", sans-serif;
 $ff-en: "M PLUS Rounded 1c", sans-serif;
 
 // フォント
-$fz-base: 1rem; // ベースフォントサイズ 16px
+$fz-base: 16px; // ベースフォントサイズ 16px
 $fw-base: 400; // ベースフォントウェイト
 $fw-medium: 500; //ミディアムフォントウェイト
 $fw-semibold: 600; //セミボールドフォントウェイト
@@ -43,18 +43,11 @@ $lh-base: 1; // ベース行間
   @return clamp($min-rem, $variable-rem + $variable-vw, $max-rem);
 }
 
-// レイアウト
-$sp-contents-width: 288px;
-$pc-contents-width: 1232px;
-
-// transitionの定義
-$transition-default: all 0.3s ease;
-
 // 重なり順の定義
 $z-indexes: (
   header: 4,
-  hamburger: 3,
-  drawer: 2,
+  drawer-icon: 3,
+  drawer-content: 2,
 );
 
 @function z-index($key) {

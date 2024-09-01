@@ -1,0 +1,45 @@
+@use "../global" as global;
+
+// margin-block-start
+.u-mbs-sm {
+  margin-block-start: 10px;
+}
+.u-mbs-md {
+  margin-block-start: 20px;
+}
+.u-mbs-lg {
+  margin-block-start: 30px;
+}
+
+// margin-block-end
+.u-mbe-sm {
+  margin-block-end: 10px;
+}
+.u-mbe-md {
+  margin-block-end: 20px;
+}
+.u-mbe-lg {
+  margin-block-end: 30px;
+}
+
+// margin-inline-start
+.u-mis-sm {
+  margin-inline-start: 10px;
+}
+.u-mis-md {
+  margin-inline-start: 20px;
+}
+.u-mis-lg {
+  margin-inline-start: 30px;
+}
+
+// margin-inline-end
+.u-mie-sm {
+  margin-inline-end: 10px;
+}
+.u-mie-md {
+  margin-inline-end: 20px;
+}
+.u-mie-lg {
+  margin-inline-end: 30px;
+}

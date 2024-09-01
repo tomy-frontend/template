@@ -1,22 +1,29 @@
 @use "../global" as global;
 
 .c-btn {
-  position: relative;
-  width: 100%;
-  max-width: 330px;
+  inline-size: 100%;
   display: inline-block;
+  padding-block: 1em;
+  padding-inline: 1em;
   align-items: center;
-  color: global.$black;
-  font-size: global.rem(22.263);
-  font-weight: global.$fw-bold;
-  line-height: 140%; /* 31.168px */
-  letter-spacing: 0.668px;
-  padding-block: 0.78em;
-  background-color: global.$white;
   border: 2px solid;
   border-radius: 70px;
   text-align: center;
-  transition: global.$transition-default;
+  transition: all 0.3s ease;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #393939;
+      color: #fff;
+    }
+  }
+}
+
+//矢印ありボタン
+.c-btn--primary {
+  --arrow-size: 10px;
+
+  position: relative;
 
   // 三角矢印アイコン
   &:after {
@@ -24,59 +31,25 @@
     content: "";
     top: 50%;
     right: 0.8em;
-    width: 100%;
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: var(--arrow-size);
+    height: var(--arrow-size);
     border-right: 2px solid;
     border-bottom: 2px solid;
     transform: translateY(-50%);
     rotate: (-45deg);
-    transition: global.$transition-default;
+    transition: all 0.3s ease;
   }
 
   @media (any-hover: hover) {
     &:hover,
     &:focus {
-      background-color: global.$main-color;
-      color: global.$white;
+      background-color: #393939;
+      color: #fff;
 
       &:after {
-        border-color: global.$white;
+        border-color: #fff;
         right: 0.7em;
-      }
-    }
-  }
-}
-
-.c-btn--bg-white {
-  max-width: 229px;
-  font-size: global.rem(18);
-  color: global.$main-color;
-  letter-spacing: 0.54px;
-  padding-top: 9.04px;
-  padding-bottom: 6.9px;
-  border-radius: 30px;
-  background-color: global.$white;
-
-  &::after {
-    content: none;
-  }
-}
-
-// pattern-2
-.c-btn--bg-pink {
-  color: global.$white;
-  background-color: global.$main-color;
-
-  @media (any-hover: hover) {
-    &:hover,
-    &:focus {
-      background-color: global.$white;
-      color: global.$main-color;
-
-      &:after {
-        border-color: global.$main-color;
       }
     }
   }

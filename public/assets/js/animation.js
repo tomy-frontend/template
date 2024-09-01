@@ -1,90 +1,102 @@
-gsap.registerPlugin(ScrollTrigger);
+// 共通アニメーション //
+// 下からフェードイン
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeInElements = document.querySelectorAll(".jsfadeIn");
 
-// '.jsfadeIn'クラスを持つすべての要素を選択し、下からフェードイン
-document.querySelectorAll(".jsfadeIn").forEach((element) => {
-  gsap.from(element, {
-    scrollTrigger: {
-      trigger: element, // この要素がビューポートに入るとトリガーされる
-      start: "top 90%", // 要素の上端がビューポートの下から10%の位置に来たときにアニメーション開始
-      end: "bottom 60%", // 要素の下端がビューポートの上から40%の位置に来たときにアニメーション終了
-      toggleActions: "play none none none", // スクロール時のアクション設定: スタートで再生、他のイベントは無視
-      // markers: true, // 開発用のタイミングマーカー（デバッグ時に有効にする）
-    },
-    duration: 1, // アニメーションの持続時間（秒）
-    opacity: 0, // 開始時の透明度（0は完全に透明）
-    y: 50, // 開始時に要素を垂直方向に50ピクセル下から開始
-    ease: "power1.out", // アニメーションのイージング関数（ここではpower1のアウトを使用）
-  });
+  // .jsfadeIn 要素が存在する場合のみ処理を実行
+  if (fadeInElements.length > 0) {
+    fadeInElements.forEach((element) => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 90%",
+          end: "bottom 60%",
+          toggleActions: "play none none none",
+          // scrub: true,
+          // markers: true, // デバッグ用マーカー
+        },
+        duration: 1,
+        opacity: 0,
+        y: 50,
+        ease: "power1.out",
+      });
+    });
+  }
 });
 
-// '.jsfadeInDown'クラスを持つすべての要素を選択し、上からフェードイン
-document.querySelectorAll(".jsfadeInDown").forEach((element) => {
-  gsap.from(element, {
-    scrollTrigger: {
-      trigger: element,
-      start: "top 90%",
-      end: "bottom 60%",
-      toggleActions: "play none none none",
-      //   markers: true, // 開発用タイミング確認用
-    },
-    duration: 1,
-    opacity: 0,
-    y: -50,
-    ease: "power1.out",
-  });
+// 左からフェードイン
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeInLeftElements = document.querySelectorAll(".jsfadeInLeft");
+
+  // .jsfadeInLeft 要素が存在する場合のみ処理を実行
+  if (fadeInLeftElements.length > 0) {
+    fadeInLeftElements.forEach((element) => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 90%",
+          end: "bottom 60%",
+          toggleActions: "play none none none",
+          // scrub: true,
+          // markers: true, // デバッグ用マーカー
+        },
+        duration: 1,
+        opacity: 0,
+        x: -50,
+        ease: "power1.out",
+      });
+    });
+  }
 });
 
-// '.jsfadeInLeft'クラスを持つすべての要素を選択し、左からフェードイン
-document.querySelectorAll(".jsfadeInLeft").forEach((element) => {
-  gsap.from(element, {
-    scrollTrigger: {
-      trigger: element,
-      start: "top 90%",
-      end: "bottom 60%",
-      toggleActions: "play none none none",
-      //   markers: true, // 開発用タイミング確認用
-    },
-    duration: 1,
-    opacity: 0,
-    x: -50,
-    ease: "power1.out",
-  });
+// 右からフェードイン
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeInRightElements = document.querySelectorAll(".jsfadeInRight");
+
+  // .jsfadeInRight 要素が存在する場合のみ処理を実行
+  if (fadeInRightElements.length > 0) {
+    fadeInRightElements.forEach((element) => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 90%",
+          end: "bottom 60%",
+          toggleActions: "play none none none",
+          // markers: true, // デバッグ用マーカー
+        },
+        duration: 1,
+        opacity: 0,
+        x: 50,
+        ease: "power1.out",
+      });
+    });
+  }
 });
 
-// '.jsfadeInRight'クラスを持つすべての要素を選択し、右からフェードイン
-document.querySelectorAll(".jsfadeInRight").forEach((element) => {
-  gsap.from(element, {
-    scrollTrigger: {
-      trigger: element,
-      start: "top 90%",
-      end: "bottom 60%",
-      toggleActions: "play none none none",
-      //   markers: true, // 開発用タイミング確認用
-    },
-    duration: 1,
-    opacity: 0,
-    x: 50,
-    ease: "power1.out",
-  });
-});
+// 拡大から縮小
+document.addEventListener("DOMContentLoaded", () => {
+  const jsScaleElements = document.querySelectorAll(".jsScale");
 
-// jsScaleクラスを持つすべての要素を選択し、拡大→元のサイズへ縮小しながらフェードイン
-document.querySelectorAll(".jsScale").forEach((jsScale) => {
-  gsap.fromTo(
-    jsScale,
-    { scale: 1.3, opacity: 0 }, // 初期状態はやや拡大され、透明度は0
-    {
-      scrollTrigger: {
-        trigger: jsScale, // トリガーとなるのは各`.jsScale`要素自身
-        start: "top bottom",
-        end: "top center",
-        toggleActions: "play none none none",
-        once: true,
-      },
-      scale: 1, // （元のサイズに戻る）
-      opacity: 1, // 元の透明度に戻る
-      ease: "power1.out",
-      duration: 1.8,
-    }
-  );
+  // .jsScale 要素が存在する場合のみ処理を実行
+  if (jsScaleElements.length > 0) {
+    jsScaleElements.forEach((jsScale) => {
+      gsap.fromTo(
+        jsScale,
+        { scale: 1.2 }, // 初期状態はやや拡大され、透明度は0
+        {
+          scrollTrigger: {
+            trigger: jsScale, // トリガーとなるのは各`.jsScale`要素自身
+            start: "top 90%", // ビューポートの下端に要素の上端が来た時にアニメーション開始
+            end: "bottom 60%", // ビューポートの中央に要素の上端が来た時にアニメーション終了
+            toggleActions: "play none none none", // アニメーションを1回再生して終了
+            once: true, // アニメーションを1回限り実行
+            // markers: true, // デバッグ用マーカー
+          },
+          scale: 1, // 目標とするスケール（元のサイズに戻る）
+          ease: "power1.out", // アニメーションのイージングを滑らかにする
+          duration: 2.0, // アニメーションの持続時間を2秒に設定
+        }
+      );
+    });
+  }
 });
