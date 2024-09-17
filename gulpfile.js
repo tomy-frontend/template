@@ -41,7 +41,7 @@ function compileSass() {
 // watchでファイルの更新があれば自動コンパイルされるようにする
 // ./src/**/*.scssを監視して、変更があればcompileSassを実行するような処理
 // ターミナルコマンドは npx gulp watch
-// watchでファイルの更新があれば自動コンパイルされるようにする
+// watchでファイルの更新があれば自動コンパイル
 function watch() {
   gulp.watch(paths.sass, gulp.series(compileSass, browserReload));
   gulp.watch(paths.js, gulp.series(copyJs, browserReload));
@@ -67,27 +67,29 @@ function browserReload(done) {
   done();
 }
 
-// JavaScriptファイルをpublicフォルダにコピー
+// JavaScriptファイルを圧縮してpublicフォルダにコピー
 function copyJs() {
   return gulp
-    .src(paths.js) // srcフォルダの中の全フォルダの.jsファイルを参照して
-    .pipe(gulp.dest(paths.jsDest)); // publicフォルダに出力するよ
+    .src(paths.js)
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest(paths.jsDest));
 }
 
 // htmlファイルのフォーマット
 function formatHTML() {
   return gulp
-    .src(paths.html) // srcフォルダの中の全フォルダの.htmlファイルを参照して
+    .src(paths.html)
     .pipe(
       htmlBeautify({
         indent_size: 2,
         indent_with_tabs: true,
       })
     )
-    .pipe(gulp.dest(paths.htmlDest)); // publicフォルダに出力するよ
+    .pipe(gulp.dest(paths.htmlDest));
 }
 
-// imgフォルダをpublicにコピーする処理
+// imgフォルダをpublicにコピー
 function copyImage() {
   return gulp.src(paths.img).pipe(gulp.dest(paths.imgDest));
 }
