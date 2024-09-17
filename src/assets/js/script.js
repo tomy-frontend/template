@@ -1,4 +1,4 @@
-//375px未満は表示倍率を変更
+//360px未満は表示倍率を変更
 !(function () {
   const viewport = document.querySelector('meta[name="viewport"]');
   function switchViewport() {
