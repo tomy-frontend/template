@@ -25,32 +25,27 @@ const paths = {
   htmlDest: "./public",
 };
 
-// sassをコンパイルするための記述
+// Sassをコンパイルするための記述
 function compileSass() {
   return gulp
     .src(paths.sass)
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer(), cssSorter()]))
     .pipe(mmq())
-    .pipe(gulp.dest(paths.cssDest))
     .pipe(cleanCss())
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest(paths.cssDest));
 }
 
 // watchでファイルの更新があれば自動コンパイルされるようにする
-// ./src/**/*.scssを監視して、変更があればcompileSassを実行するような処理
-// ターミナルコマンドは npx gulp watch
-// watchでファイルの更新があれば自動コンパイル
 function watch() {
   gulp.watch(paths.sass, gulp.series(compileSass, browserReload));
-  gulp.watch(paths.js, gulp.series(copyJs, browserReload));
+  // gulp.watch(paths.js, gulp.series(copyJs, browserReload));
   gulp.watch(paths.img, gulp.series(copyImage, browserReload));
   gulp.watch(paths.html, gulp.series(formatHTML, browserReload));
 }
 
-// ブラウザを立ち上げる処理
-// publicの中のindex.htmlを立ち上げる
+// publicの中のindex.htmlを立ち上げる処理
 function browserInit(done) {
   browserSync.init({
     server: {
@@ -67,14 +62,10 @@ function browserReload(done) {
   done();
 }
 
-// JavaScriptファイルを圧縮してpublicフォルダにコピー
-function copyJs() {
-  return gulp
-    .src(paths.js)
-    .pipe(uglify())
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest(paths.jsDest));
-}
+// JavaScriptファイルをpublicフォルダにコピー
+// function copyJs() {
+//   return gulp.src(paths.js).pipe(gulp.dest(paths.jsDest));
+// }
 
 // htmlファイルのフォーマット
 function formatHTML() {
@@ -89,7 +80,7 @@ function formatHTML() {
     .pipe(gulp.dest(paths.htmlDest));
 }
 
-// imgフォルダをpublicにコピー
+// imgフォルダをpublicにコピーする処理
 function copyImage() {
   return gulp.src(paths.img).pipe(gulp.dest(paths.imgDest));
 }
@@ -98,7 +89,7 @@ function copyImage() {
 exports.compileSass = compileSass;
 exports.watch = watch;
 exports.browserInit = browserInit;
-exports.copyJs = copyJs;
+// exports.copyJs = copyJs;
 exports.formatHTML = formatHTML;
 exports.copyImage = copyImage;
 
@@ -106,7 +97,8 @@ exports.copyImage = copyImage;
 // ターミナルコマンドnpx gulp dev
 exports.dev = gulp.parallel(browserInit, watch);
 
-// 全部の処理を並列で処理する記述、初回のみ使用
+// 全部の処理を並列で処理する記述、初回のpublicファイル作成時のみ使用
 // ターミナルコマンド npm install(初回のみ)
 // ターミナルコマンド npx gulp build
-exports.build = gulp.parallel(formatHTML, copyJs, compileSass, copyImage);
+// exports.build = gulp.parallel(formatHTML, copyJs, compileSass, copyImage);
+exports.build = gulp.parallel(formatHTML, compileSass, copyImage);
